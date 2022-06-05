@@ -79,3 +79,46 @@ body {
     color: #063c7b;
     font-weight: 700;
 }
+.sect3Text {
+    text-align: center;
+    padding: 10px 30px;
+}
+.sect3Text h1 {
+    font-weight: 700;
+    color: #0d0d0d;
+}
+.sect3Text p {
+    font-weight: 500;
+    font-size: 14px;
+    color: #807d7d;
+}
+.sect3cards {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.myCard {
+    text-align: center;
+    width: 40%;
+    padding: 20px 0px;
+}
+.myCard img {
+    max-width: 64px;
+}
+.myCardImg {
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.myCard h5 {
+    font-size: 14px;
+    color: #0d0d0d;
+    font-weight: 500;
+}
+.myCard p {
+    font-size: 12px;
+    color: #807d7d;
+    font-weight: 400;
+}
