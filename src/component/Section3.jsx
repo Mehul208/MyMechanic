@@ -12,8 +12,8 @@ const Section3 = () => {
                 </p>
             </div>
             <div className="sect3cards">
-                {data.map((item) => (
-                    <Card {...item} />
+                {data.map((item, i) => (
+                    <Card key={i} {...item} />
                 ))}
             </div>
         </div>
