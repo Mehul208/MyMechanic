@@ -100,8 +100,9 @@ body {
 }
 .myCard {
     text-align: center;
-    width: 40%;
-    padding: 20px 0px;
+    width: 45%;
+    padding: 30px 0px;
+    border-radius: 12px;
 }
 .myCard img {
     max-width: 64px;
@@ -113,12 +114,12 @@ body {
     margin-bottom: 10px;
 }
 .myCard h5 {
-    font-size: 14px;
+    font-size: 16px;
     color: #0d0d0d;
     font-weight: 500;
 }
 .myCard p {
-    font-size: 12px;
+    font-size: 14px;
     color: #807d7d;
     font-weight: 400;
 }
