@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import { data } from "./extras/landingPageCard";
+import { data } from "../extras/landingPageCard";
 const Section3 = () => {
     return (
         <div>
@@ -13,7 +13,7 @@ const Section3 = () => {
             </div>
             <div className="sect3cards">
                 {data.map((item, i) => (
-                    <Card key={i} {...item} />
+                    <Card key={i} {...item} shadow={i===0?true:false}/>
                 ))}
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import image1 from "../images/image_section1.png";
-import image2 from "../images/playIcon.png";
+import image1 from "../../images/image_section1.png";
+import image2 from "../../images/playIcon.png";
 
 const Section1 = () => {
     return (
