@@ -1,0 +1,81 @@
+.sect3Text {
+    text-align: center;
+    padding: 10px 30px;
+}
+.sect3Text h1 {
+    font-weight: 700;
+    color: #0d0d0d;
+}
+.sect3Text p {
+    font-weight: 500;
+    font-size: 14px;
+    color: #807d7d;
+}
+.sect3cards {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.myCard {
+    text-align: center;
+    width: 45%;
+    padding: 30px 0px;
+    border-radius: 12px;
+}
+.myCard img {
+    max-width: 64px;
+}
+.myCardImg {
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.myCard h5 {
+    font-size: 16px;
+    color: #0d0d0d;
+    font-weight: 500;
+}
+.myCard p {
+    font-size: 14px;
+    color: #807d7d;
+    font-weight: 400;
+}
+@media screen and (min-width: 720px) {
+    .sect3Text {
+        padding: 0px;
+    }
+    .sect3Text h1 {
+        font-weight: 700;
+        color: #0d0d0d;
+    }
+    .sect3Text p {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .sect3cards {
+        margin: 20px 0;
+    }
+    .myCard {
+        width: 30%;
+        padding: 55px 0px;
+    }
+    .myCard h5 {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .myCard p {
+        font-size: 15px;
+    }
+}
+@media screen and (min-width: 1100px) {
+    .myCard {
+        padding: 60px 0px;
+        margin: 10px 0;
+    }
+    .myCard p {
+        width: 60%;
+        margin: 0 auto;
+    }
+}

@@ -9,11 +9,13 @@ import Section4 from "./Section4";
 const Layout = () => {
     return (
         <div>
-            <Navbar />
-            <Section1 /> {/* Head Section */}
-            <Section2 /> {/* Offers or searchbar */}
-            <Section3 /> {/* Nearby Services Cards */}
-            <Section4 /> {/* Some info/reviews */}
+            <div className="wrapper">
+                <Navbar />
+                <Section1 /> {/* Head Section */}
+                <Section2 /> {/* Offers or searchbar */}
+                <Section3 /> {/* Nearby Services Cards */}
+                <Section4 /> {/* Some info/reviews */}
+            </div>
             <Footer />
         </div>
     );

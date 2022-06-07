@@ -1,9 +1,9 @@
-import image1 from "../../images/periodic_icon.png";
-import image2 from "../../images/image2.png";
-import image3 from "../../images/image3.png";
-import image4 from "../../images/image4.png";
-import image5 from "../../images/image5.png";
-import image6 from "../../images/image6.png";
+import image1 from "../HomePage/images/periodic_icon.png";
+import image2 from "../HomePage/images/image2.png";
+import image3 from "../HomePage/images/image3.png";
+import image4 from "../HomePage/images/image4.png";
+import image5 from "../HomePage/images/image5.png";
+import image6 from "../HomePage/images/image6.png";
 export const data = [
     {
         image: image1,

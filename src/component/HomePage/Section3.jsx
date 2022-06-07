@@ -1,4 +1,5 @@
 import React from "react";
+import "./css/section3.css";
 import Card from "./Card";
 import { data } from "../extras/landingPageCard";
 const Section3 = () => {
@@ -13,7 +14,7 @@ const Section3 = () => {
             </div>
             <div className="sect3cards">
                 {data.map((item, i) => (
-                    <Card key={i} {...item} shadow={i===0?true:false}/>
+                    <Card key={i} {...item} shadow={i === 0 ? true : false} />
                 ))}
             </div>
         </div>
