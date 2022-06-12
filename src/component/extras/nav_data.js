@@ -4,15 +4,15 @@ export const data = [
         link: "#",
     },
     {
-        title: "Buissness",
+        title: "Services",
+        link: "/services",
+    },
+    {
+        title: "Register Your Business",
         link: "#",
     },
     {
-        title: "Register",
-        link: "#",
-    },
-    {
-        title: "Logout",
-        link: "#",
+        title: "Login",
+        link: "auth",
     },
 ];
