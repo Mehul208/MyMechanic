@@ -11,6 +11,8 @@ body {
 
 .logo {
     align-self: center;
+    
+    cursor: pointer;
 }
 .main-nav {
     display: flex;

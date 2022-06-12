@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import menuIcon from "../images/icon.png";
 import { data } from "./extras/nav_data";
+
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
+    const naviagte = useNavigate();
     return (
         <nav className="main-nav">
-            <div className="logo">
+            <div
+                className="logo"
+                onClick={() => {
+                    naviagte("/");
+                }}
+            >
                 <h2>
                     <span>My</span>Mechanic
                 </h2>
@@ -17,7 +25,7 @@ const Navbar = () => {
                 <ul>
                     {data.map((item, i) => (
                         <li key={i}>
-                            <a href={item.link}>{item.title}</a>
+                            <Link to={item.link}>{item.title}</Link>
                         </li>
                     ))}
                 </ul>
