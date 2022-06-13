@@ -36,7 +36,8 @@ body {
 }
 .main-nav ul li a {
     color: #0d0d0d;
-    font-weight: 700;
+    font-weight: 600;
+    font-family: 'Poppins',sans-serif;
     text-decoration: none;
     padding: 20px 0;
     display: block;
@@ -84,8 +85,8 @@ body {
     }
     .main-nav ul li a {
         color: #807d7d;
-        padding: 10px 30px;
-        font-size: 16px;
+        padding: 10px 25px;
+        font-size: 15px;
     }
     .main-nav ul li a:hover {
         color: #0d0d0d;
