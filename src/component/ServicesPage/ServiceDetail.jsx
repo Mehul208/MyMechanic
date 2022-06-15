@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { data } from "../extras/landingPageCard";
+import ServiceCard from "./ServiceCard";
 
 const ServiceDetail = () => {
     const [service, setService] = useState({});
@@ -17,14 +18,8 @@ const ServiceDetail = () => {
     }, [id, navigate]);
 
     return (
-        // Put all this in a service card
-
         <div>
-            <h1>{service.title}</h1>
-            <p>
-                <img src={service.image} alt="" /> <br /> {service.desc}
-            </p>
-
+            <ServiceCard {...service} />
             <button
                 onClick={() => {
                     navigate(-1);
