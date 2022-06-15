@@ -11,6 +11,45 @@ export const data = [
         title: "Periodic Service",
         desc: "A Lorem Ipsum is simply dummy text of the",
         bgColor: "#E6FDF6",
+        nameQuery: "ps",
+        list: [
+            {
+                title: "Basic Service",
+                image: "/",
+                points: [
+                    "1000 Kms or 1 Month Warranty",
+                    "Every 5000 Kms or 3 months",
+                    "Engine Oil replace",
+                    "Oil filter replacement",
+                    "Air filter cleaning",
+                    "Coolant top up",
+                ],
+            },
+            {
+                title: "Standard Service",
+                image: "/",
+                points: [
+                    "1000 Kms or 1 Month Warranty",
+                    "Every 10000 Kms or 6 months",
+                    "Engine Oil replace",
+                    "Oil filter replacement",
+                    "Air filter replacement",
+                    "Fuel filter checking",
+                ],
+            },
+            {
+                title: "Comprehensive Service",
+                image: "/",
+                points: [
+                    "1000 Kms or 1 Month Warranty",
+                    "Every 20000 Kms or 12 months",
+                    "Engine Oil replace",
+                    "Oil filter replacement",
+                    "Air filter cleaning",
+                    "Coolant top up",
+                ],
+            },
+        ],
     },
     {
         id: 2,
