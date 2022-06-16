@@ -7,11 +7,13 @@ body {
 .wrapper {
     width: calc(100% - 30px);
     margin: 0 auto;
+    min-height: 100vh;
+    padding-bottom: 50px;
 }
 
 .logo {
     align-self: center;
-    
+
     cursor: pointer;
 }
 .main-nav {
