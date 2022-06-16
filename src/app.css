@@ -60,7 +60,17 @@ body {
 .menu-icon img {
     width: 35px;
 }
-
+.block404 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+.block404 img{
+    max-width: 95%;
+}
 @media screen and (min-width: 720px) {
     .wrapper {
         width: calc(100% - 100px);
@@ -91,5 +101,8 @@ body {
     }
     .main-nav ul li a:hover {
         color: #0d0d0d;
+    }
+    .block404 img{
+        max-width: 55%;
     }
 }
