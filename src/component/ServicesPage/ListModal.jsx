@@ -1,6 +1,5 @@
 import React from "react";
 import Box from "@mui/material/Box";
-// import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { useEffect } from "react";
@@ -18,11 +17,11 @@ const style = {
     p: 4,
 };
 
-export default function ListModal({ open, setOpen, st, ot }) {
+export default function ListModal({ open, setOpen, st, ot, id }) {
     const handleClose = () => setOpen(false);
     useEffect(() => {
-        console.log(st, ot);
-    }, [st, ot]);
+        console.log(st, ot, id);
+    }, [st, ot, id]);
     return (
         <div>
             <Modal
@@ -44,12 +43,13 @@ export default function ListModal({ open, setOpen, st, ot }) {
                                 return (
                                     <ModalCard
                                         key={i}
+                                        id={id}
                                         name={workshop.name}
                                         {...existing}
                                     />
                                 );
                             }
-                            return <></>;
+                            return "";
                         })
                     ) : (
                         <Typography>Loading ...</Typography>

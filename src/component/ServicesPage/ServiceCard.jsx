@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ListModal from "./ListModal";
 
-const ServiceCard = ({ title, image, desc, list, nameQuery }) => {
+const ServiceCard = ({id, title, image, desc, list, nameQuery }) => {
     const [open, setOpen] = useState(false);
     const [serviceTitle, setServiceTitle] = useState("");
     const [optionTitle, setoptionTitle] = useState("");
@@ -12,6 +12,7 @@ const ServiceCard = ({ title, image, desc, list, nameQuery }) => {
                 setOpen={setOpen}
                 st={serviceTitle}
                 ot={optionTitle}
+                id={id}
             />
             <h1>{title}</h1>
             <p>
