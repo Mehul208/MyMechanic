@@ -1,12 +1,17 @@
 import React from "react";
-
+import image from "./images/404.png";
 const Page404 = () => {
     return (
-        <div>
+        <div className="block404">
             <div>
-                <img src="#" alt="404 not found pic" />
+                <img src={image} alt="404 not found pic" />
             </div>
-            <h2>Opps, Nothing Here</h2>
+            <button className="btn btn-dark px-4">
+                {" "}
+                <a href="/" className="text-light fs-5 text-decoration-none">
+                    Go Home
+                </a>{" "}
+            </button>
         </div>
     );
 };

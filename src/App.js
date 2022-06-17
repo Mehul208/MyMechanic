@@ -9,6 +9,7 @@ import Footer from "./component/Footer";
 import Navbar from "./component/Navbar";
 import ListServices from "./component/ServicesPage/ListServices";
 import ServiceDetail from "./component/ServicesPage/ServiceDetail";
+import CartList from "./component/CartPage/CartList";
 const App = () => {
     return (
         <BrowserRouter>
@@ -23,6 +24,7 @@ const App = () => {
                         <Route path="signUp" element={<SignUp />} />
                         <Route path="*" element={<Page404 />} />
                     </Route>
+                    <Route path="cart" element={<CartList />} />
                     <Route path="404" element={<Page404 />} />
                     <Route path="*" element={<Page404 />} />
                 </Routes>

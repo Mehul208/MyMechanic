@@ -1,23 +1,21 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import menuIcon from "../images/icon.png";
 import { data } from "./extras/nav_data";
+import IconButton from "@mui/material/IconButton";
+import Badge from "@mui/material/Badge";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import Logo from "./Logo";
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+    const cartCount = useSelector((state) => state.cart.cartItems);
     const naviagte = useNavigate();
     return (
         <nav className="main-nav">
-            <div
-                className="logo"
-                onClick={() => {
-                    naviagte("/");
-                }}
-            >
-                <h2>
-                    <span>My</span>Mechanic
-                </h2>
-            </div>
+            <Logo />
             <div
                 style={toggle ? { display: "block" } : { display: "none" }}
                 className="_mnvd"
@@ -28,6 +26,24 @@ const Navbar = () => {
                             <Link to={item.link}>{item.title}</Link>
                         </li>
                     ))}
+                    {/* below needs to be in other file as they are not part of the system here */}
+                    <IconButton
+                        onClick={() => {
+                            naviagte("cart");
+                        }}
+                    >
+                        <Badge badgeContent={cartCount} color="primary">
+                            <AddShoppingCartIcon color="action" />
+                        </Badge>
+                    </IconButton>
+                    <button
+                        className={`btn btn-primary mx-4`}
+                        onClick={() => {
+                            naviagte("auth");
+                        }}
+                    >
+                        {isLoggedIn ? "Logout" : "Login"}
+                    </button>
                 </ul>
             </div>
             <div

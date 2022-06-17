@@ -1,5 +1,6 @@
 import React from "react";
 import "./footer.css";
+import Logo from "./Logo";
 const Footer = () => {
     return (
         <div className="_efb">
@@ -22,11 +23,9 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="logo text-center _lft">
-                <h2 style={{ fontSize: "32px", marginBottom: "15px" }}>
-                    <span>My</span>Mechanic
-                </h2>
-                <p>
+            <div className="text-center _lft">
+                <Logo />
+                <p className="mt-3">
                     A Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard.
