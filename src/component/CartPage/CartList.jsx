@@ -1,18 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import CartCard from "./CartCard";
 
 const CartList = () => {
     const cartList = useSelector((state) => state.cart.cartItemsList);
     return (
         <div>
             {cartList.length > 0 ? (
-                cartList.map((item, i) => (
-                    <div key={i}>
-                        workshop - {item.workshop_name}, service - {item.title},
-                        price - {item.price}, slot time: {item.time}, slot date:{" "}
-                        {item.date},
-                    </div>
-                ))
+                cartList.map((item, i) => <CartCard {...item} key={i} />)
             ) : (
                 <div>No items in cart</div>
             )}
