@@ -13,7 +13,7 @@ const Section4 = () => {
             <Stack spacing={4} direction="row" className="sec4c hbar">
                 {!loading && data ? (
                     data.map((item, i) => (
-                        <div>
+                        <div key={i}>
                             <div className="sec4c_i">
                                 <img src={item.imageLink} alt={item.name} />
                             </div>

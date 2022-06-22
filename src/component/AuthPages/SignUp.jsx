@@ -9,24 +9,39 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../store/auth-actions";
+import { useEffect } from "react";
+import SimpleBackdrop from "../backdropEffect";
+import SnackAlert from "./snackAlert";
 
 const theme = createTheme();
 
 export default function SignUp() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const loading = useSelector((state) => state.auth.loading);
+    const error = useSelector((state) => state.auth.isError);
+    const loggedIn = useSelector((state) => state.auth.isLoggedIn);
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
+        const cred = {
+            name: data.get("firstName") + " " + data.get("lastName"),
             email: data.get("email"),
             password: data.get("password"),
-        });
+        };
+        dispatch(registerUser(cred));
     };
-
+    useEffect(() => {
+        if (loggedIn) navigate("/");
+    }, [loggedIn, navigate]);
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
+                {loading ? <SimpleBackdrop open={loading} /> : <></>}
                 <Box
                     sx={{
                         marginTop: 5,
@@ -108,6 +123,24 @@ export default function SignUp() {
                         </Grid>
                     </Box>
                 </Box>
+                {error ? (
+                    <SnackAlert
+                        open={true}
+                        message="An error occured"
+                        variant="error"
+                    />
+                ) : (
+                    <></>
+                )}
+                {loggedIn ? (
+                    <SnackAlert
+                        open={true}
+                        message="Login Success"
+                        variant="success"
+                    />
+                ) : (
+                    <></>
+                )}
             </Container>
         </ThemeProvider>
     );

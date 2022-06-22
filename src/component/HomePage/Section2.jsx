@@ -9,8 +9,8 @@ const Section2 = () => {
             <h2 className="mb-3">Offers for you</h2>
             <div className="_offr1b hbar">
                 <Stack spacing={2} direction="row">
-                    {offers.map((offer)=>(
-                        <img src={offer.image} alt="offer" />
+                    {offers.map((offer,i)=>(
+                        <img src={offer.image} alt="offer" key={i}/>
                     ))}
                 </Stack>
             </div>

@@ -1,4 +1,4 @@
-import { createSlice, current } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const service_slice = createSlice({
     name: "services",
@@ -11,15 +11,12 @@ const service_slice = createSlice({
     reducers: {
         setServices(state, action) {
             state.servicesList = action.payload.services;
-            console.log(current(state));
         },
         setOptions(state, action) {
             state.optionsList = action.payload.options;
-            console.log(current(state));
         },
         setLoading(state, action) {
             state.loading = action.payload;
-            console.log(current(state));
         },
         setNotFound(state, action) {
             state.notFound = action.payload;

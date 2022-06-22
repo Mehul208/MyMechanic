@@ -138,7 +138,7 @@ export default function SignIn() {
                 {error ? (
                     <SnackAlert
                         open={true}
-                        message="An error Occured"
+                        message="Invalid Data"
                         variant="error"
                     />
                 ) : (
