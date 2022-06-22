@@ -16,23 +16,23 @@
     font-family: "Poppins", sans-serif;
 }
 @media screen and (min-width: 720px) {
-    ._offr1b::-webkit-scrollbar {
+    .hbar::-webkit-scrollbar {
         height: 10px;
     }
 
     /* Track */
-    ._offr1b::-webkit-scrollbar-track {
+    .hbar::-webkit-scrollbar-track {
         background: #f1f1f1;
     }
 
     /* Handle */
-    ._offr1b::-webkit-scrollbar-thumb {
+    .hbar::-webkit-scrollbar-thumb {
         background: rgb(164, 164, 164);
         border-radius: 10px;
     }
 
     /* Handle on hover */
-    ._offr1b::-webkit-scrollbar-thumb:hover {
+    .hbar::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
 }

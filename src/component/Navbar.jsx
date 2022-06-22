@@ -8,6 +8,7 @@ import Badge from "@mui/material/Badge";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Logo from "./Logo";
 import { authActions } from "../store/auth-slice";
+import UserAvatar from "./UserAvatar";
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
@@ -38,15 +39,18 @@ const Navbar = () => {
                             <AddShoppingCartIcon color="action" />
                         </Badge>
                     </IconButton>
-                    <button
-                        className={`btn btn-primary mx-4`}
-                        onClick={() => {
-                            if (isLoggedIn) dispatch(authActions.logout());
-                            else naviagte("auth");
-                        }}
-                    >
-                        {isLoggedIn ? "Logout" : "Login"}
-                    </button>
+                    {isLoggedIn ? (
+                        <UserAvatar />
+                    ) : (
+                        <button
+                            className={`btn btn-primary mx-4`}
+                            onClick={() => {
+                                naviagte("auth");
+                            }}
+                        >
+                            Login
+                        </button>
+                    )}
                 </ul>
             </div>
             <div
