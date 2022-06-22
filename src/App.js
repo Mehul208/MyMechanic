@@ -10,6 +10,7 @@ import Navbar from "./component/Navbar";
 import ListServices from "./component/ServicesPage/ListServices";
 import ServiceDetail from "./component/ServicesPage/ServiceDetail";
 import CartList from "./component/CartPage/CartList";
+import Section5 from "./component/HomePage/Section5";
 const App = () => {
     return (
         <BrowserRouter>
@@ -29,6 +30,7 @@ const App = () => {
                     <Route path="*" element={<Page404 />} />
                 </Routes>
             </div>
+            <Section5/>
             <Footer />
         </BrowserRouter>
     );
