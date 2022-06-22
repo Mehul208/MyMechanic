@@ -1,64 +1,43 @@
-._offr1 {
-    display: flex;
-    justify-content: flex-start;
-    overflow-x: scroll;
+._offr1b {
     overflow-y: hidden;
-    padding: 15px 0;
+    overflow-x: scroll;
+    padding: 10px 0;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+._offr1b img {
+    max-width: 100%;
+    max-height: 200px;
 }
 ._offr1a h2 {
     font-weight: 600;
     color: #0d0d0d;
     font-family: "Poppins", sans-serif;
 }
-._offr {
-    min-width: 200px;
-    min-height: 150px;
-    background: linear-gradient(
-        173deg,
-        rgba(36, 0, 28, 1) 7%,
-        rgba(9, 96, 121, 1) 48%,
-        rgba(0, 212, 255, 1) 100%
-    );
-    color: white;
-    border-radius: 25px;
-    padding: 15px;
-    margin-right: 20px;
-}
-._offr h4 {
-    font-weight: 600;
-    font-size: 20px;
-    font-family: "Poppins", sans-serif;
-}
 @media screen and (min-width: 720px) {
-    ._offr {
-        max-width: 200px;
-    }
-    /* width */
-    ._offr1::-webkit-scrollbar {
-        height: 4px;
+    ._offr1b::-webkit-scrollbar {
+        height: 10px;
     }
 
     /* Track */
-    ._offr1::-webkit-scrollbar-track {
+    ._offr1b::-webkit-scrollbar-track {
         background: #f1f1f1;
     }
 
     /* Handle */
-    ._offr1::-webkit-scrollbar-thumb {
-        background: #888;
+    ._offr1b::-webkit-scrollbar-thumb {
+        background: rgb(164, 164, 164);
         border-radius: 10px;
     }
 
     /* Handle on hover */
-    ._offr1::-webkit-scrollbar-thumb:hover {
+    ._offr1b::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
 }
 @media screen and (min-width: 980px) {
     ._offr1a h2 {
         text-align: center;
-    }
-    ._offr1 {
-        justify-content: center;
     }
 }
