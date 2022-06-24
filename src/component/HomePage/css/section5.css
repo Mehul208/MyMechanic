@@ -1,0 +1,72 @@
+.sec5 {
+    padding: 45px 0;
+}
+.sec5 h1 {
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+.sec5 p {
+    color: rgb(189, 189, 189);
+    text-align: center;
+    width: 80%;
+    margin: 15px auto;
+    font-size: 14px;
+}
+.sec5Inp {
+    display: flex;
+    flex-wrap: wrap;
+}
+.sec5Inp input {
+    outline: none;
+    background-color: transparent;
+    border: 2px solid rgb(189, 189, 189);
+    border-radius: 5px;
+    padding: 15px;
+    display: block;
+    width: 80%;
+    margin: 0px auto;
+    color: white;
+}
+.sec5Inp input::placeholder {
+    color: rgb(199, 199, 199);
+}
+._bt {  
+    margin: 10px auto;
+    width: 60%;
+}
+
+@media screen and (min-width: 700px) {
+    .sec5 {
+        padding: 60px 0;
+    }
+    .sec5 h1 {
+        font-weight: 500;
+    }
+    .sec5 p {
+        margin: 10px auto;
+        font-size: 14px;
+    }
+
+    .sec5Inp {
+        width: 80%;
+        margin: 0 auto;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .sec5Inp input {
+        width: 200px;
+        padding: 10px;
+        height: fit-content;
+        margin: 0;
+        margin-right: 20px;
+    }
+    ._bt {
+        margin: 0;
+        width: 200px;
+        padding: 13px 0;
+        font-size: 14px;
+    }
+}

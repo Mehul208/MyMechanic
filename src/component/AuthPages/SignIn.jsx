@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,8 +13,10 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link as Lik, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { authActions } from "../../store/auth-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../store/auth-actions";
+import SimpleBackdrop from "../backdropEffect";
+import SnackAlert from "./snackAlert";
 function Copyright(props) {
     return (
         <Typography
@@ -38,21 +40,32 @@ const theme = createTheme();
 export default function SignIn() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const loading = useSelector((state) => state.auth.loading);
+    const error = useSelector((state) => state.auth.isError);
+    const loggedIn = useSelector((state) => state.auth.isLoggedIn);
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
+        const cred = {
             email: data.get("email"),
             password: data.get("password"),
-        });
-        dispatch(authActions.login());
-        navigate("/");
+        };
+        dispatch(loginUser(cred));
     };
+
+    useEffect(() => {
+        if (loggedIn) {
+            setTimeout(() => {
+                navigate("/");
+            }, 2000);
+        }
+    }, [loggedIn, navigate]);
 
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
+                {loading ? <SimpleBackdrop open={loading} /> : <></>}
                 <Box
                     sx={{
                         marginTop: 8,
@@ -122,6 +135,24 @@ export default function SignIn() {
                     </Box>
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
+                {error ? (
+                    <SnackAlert
+                        open={true}
+                        message="Invalid Data"
+                        variant="error"
+                    />
+                ) : (
+                    <></>
+                )}
+                {loggedIn ? (
+                    <SnackAlert
+                        open={true}
+                        message="Login Success"
+                        variant="success"
+                    />
+                ) : (
+                    <></>
+                )}
             </Container>
         </ThemeProvider>
     );

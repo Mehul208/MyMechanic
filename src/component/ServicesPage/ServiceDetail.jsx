@@ -1,25 +1,33 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { data } from "../extras/landingPageCard";
+import { fetchOption } from "../../store/service-actions";
 import ServiceCard from "./ServiceCard";
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
 
 const ServiceDetail = () => {
-    const [service, setService] = useState({});
-    let navigate = useNavigate();
-    const id = parseInt(useParams().id, 10);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const id = useParams().id;
+    const options = useSelector((state) => state.services.optionsList);
+    const loading = useSelector((state) => state.services.loading);
     useEffect(() => {
-        const checkData = () => {
-            const existing = data.find((item) => item.id === id);
-            if (existing === undefined) navigate("/404");
-            else setService({ ...existing });
-        };
-        checkData();
-    }, [id, navigate]);
+        window.scrollTo(0, 0);
+        dispatch(fetchOption(id));
+        console.log(id);
+    }, [dispatch, id]);
 
     return (
         <div>
-            <ServiceCard {...service} />
+            {!loading && options.length ? (
+                options.map((item, i) => <ServiceCard {...item} key={i} />)
+            ) : (
+                <Stack spacing={1}>
+                    <Skeleton variant="text" width={210} />
+                    <Skeleton variant="rectangular" width={210} height={118} />
+                </Stack>
+            )}
             <button
                 onClick={() => {
                     navigate(-1);

@@ -1,7 +1,7 @@
 export const data = [
     {
-        title: "About us",
-        link: "#",
+        title: "Home",
+        link: "/",
     },
     {
         title: "Services",

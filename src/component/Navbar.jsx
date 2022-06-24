@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import menuIcon from "../images/icon.png";
 import { data } from "./extras/nav_data";
@@ -7,12 +7,15 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Logo from "./Logo";
+import { authActions } from "../store/auth-slice";
+import UserAvatar from "./UserAvatar";
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false);
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
     const cartCount = useSelector((state) => state.cart.cartItems);
     const naviagte = useNavigate();
+    const dispatch = useDispatch();
     return (
         <nav className="main-nav">
             <Logo />
@@ -36,14 +39,18 @@ const Navbar = () => {
                             <AddShoppingCartIcon color="action" />
                         </Badge>
                     </IconButton>
-                    <button
-                        className={`btn btn-primary mx-4`}
-                        onClick={() => {
-                            naviagte("auth");
-                        }}
-                    >
-                        {isLoggedIn ? "Logout" : "Login"}
-                    </button>
+                    {isLoggedIn ? (
+                        <UserAvatar />
+                    ) : (
+                        <button
+                            className={`btn btn-primary mx-4`}
+                            onClick={() => {
+                                naviagte("auth");
+                            }}
+                        >
+                            Login
+                        </button>
+                    )}
                 </ul>
             </div>
             <div

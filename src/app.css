@@ -39,7 +39,7 @@ body {
 .main-nav ul li a {
     color: #0d0d0d;
     font-weight: 600;
-    font-family: 'Poppins',sans-serif;
+    font-family: "Poppins", sans-serif;
     text-decoration: none;
     padding: 20px 0;
     display: block;
@@ -69,7 +69,7 @@ body {
     transform: translateY(-50%);
     text-align: center;
 }
-.block404 img{
+.block404 img {
     max-width: 95%;
 }
 @media screen and (min-width: 720px) {
@@ -103,7 +103,26 @@ body {
     .main-nav ul li a:hover {
         color: #0d0d0d;
     }
-    .block404 img{
+    .block404 img {
         max-width: 55%;
     }
+}
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+    background: rgb(95, 94, 94);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(44, 44, 44);
 }

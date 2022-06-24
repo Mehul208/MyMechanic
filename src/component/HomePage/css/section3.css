@@ -39,11 +39,15 @@
     color: #0d0d0d;
     font-weight: 500;
     letter-spacing: 0.5px;
+    text-transform: capitalize;
 }
 .myCard p {
     font-size: 14px;
     color: #807d7d;
     font-weight: 400;
+}
+.myCard:hover{
+    box-shadow: 25px 25px 100px rgba(166, 161, 157, 0.2);
 }
 @media screen and (min-width: 720px) {
     .sect3Text {

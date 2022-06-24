@@ -1,26 +1,24 @@
 import React, { useState } from "react";
-import ListModal from "./ListModal";
+// import ListModal from "./ListModal";
 
-const ServiceCard = ({id, title, image, desc, list, nameQuery }) => {
-    const [open, setOpen] = useState(false);
-    const [serviceTitle, setServiceTitle] = useState("");
-    const [optionTitle, setoptionTitle] = useState("");
+const ServiceCard = ({ id, title, imageLink, features }) => {
+    // const [open, setOpen] = useState(false);
     return (
         <div>
-            <ListModal
+            {/* <ListModal
                 open={open}
                 setOpen={setOpen}
                 st={serviceTitle}
                 ot={optionTitle}
                 id={id}
-            />
+            /> */}
             <h1>{title}</h1>
             <p>
-                <img src={image} alt="" /> <br /> {desc}
+                <img src={imageLink} alt="" />
             </p>
             <div>
-                {list
-                    ? list.map((item, i) => (
+                {/* {features
+                    ? features.map((item, i) => (
                           <div key={i}>
                               <h3
                                   onClick={() => {
@@ -39,7 +37,12 @@ const ServiceCard = ({id, title, image, desc, list, nameQuery }) => {
                               </ul>
                           </div>
                       ))
-                    : ""}
+                    : ""} */}
+                <ul>
+                    {features ? features.map((point, k) => (
+                        <li key={k}>{point}</li>
+                    )):""}
+                </ul>
             </div>
         </div>
     );

@@ -1,10 +1,22 @@
 import React from "react";
 import "./css/section3.css";
 import Card from "./Card";
-import { data } from "../extras/landingPageCard";
+import { Link } from "react-router-dom";
+import Skeleton from "@mui/material/Skeleton";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData } from "../../store/service-actions";
+import { Stack } from "@mui/material";
+
 const Section3 = () => {
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.services.servicesList);
+    const loading = useSelector((state) => state.services.loading);
+    useEffect(() => {
+        dispatch(fetchData());
+    }, [dispatch]);
     return (
-        <div>
+        <div style={{ marginBottom: "50px" }}>
             <div className="sect3Text">
                 <h1>Services Near You</h1>
                 <p>
@@ -12,11 +24,38 @@ const Section3 = () => {
                     typesetting industry. Lorem Ipsum has been the industry's{" "}
                 </p>
             </div>
-            <div className="sect3cards">
-                {data.map((item, i) => (
-                    <Card key={i} {...item} shadow={i === 0 ? true : false} />
-                ))}
-            </div>
+            {!loading && data ? (
+                <div className="sect3cards">
+                    {data.map((item, i) => (
+                        <Card
+                            {...item}
+                            shadow={i === 0 ? true : false}
+                            key={i}
+                        />
+                    ))}
+                </div>
+            ) : (
+                <Stack direction="row" spacing={3} justifyContent="center">
+                    <Skeleton
+                        variant="rect"
+                        animation="wave"
+                        height={150}
+                        width={200}
+                    />
+                    <Skeleton
+                        variant="rect"
+                        animation="wave"
+                        height={150}
+                        width={200}
+                    />
+                    <Skeleton
+                        variant="rect"
+                        animation="wave"
+                        height={150}
+                        width={200}
+                    />
+                </Stack>
+            )}
         </div>
     );
 };
