@@ -1,0 +1,33 @@
+._scac {
+    padding: 20px 0px;
+    margin: 25px auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px 0px rgb(0 0 0 / 20%);
+}
+._scac h1 {
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 700;
+    padding-left: 30px;
+}
+._scac1 {
+    display: flex;
+}
+._scac1i {
+    width: 50%;
+    text-align: center;
+    padding: 10px 0;
+}
+._scac1i img {
+    max-width: 65%;
+    border-radius: 2px;
+}
+._prc {
+    width: 50%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 20px 0;
+    color: rgba(0, 0, 0, 0.7);
+}

@@ -18,12 +18,9 @@ const cart_slice = createSlice({
             }
             state.cartItemsList.push({
                 id: newItem.id,
-                // workshopId: newItem.wid,
+                workshopId: newItem.wid,
                 workshop_name: newItem.name,
-                title: newItem.title,
                 price: newItem.price,
-                slot_time: newItem.time,
-                slot_date: newItem.date,
             });
             state.totalPrice += newItem.price;
             state.cartItems++;
