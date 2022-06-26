@@ -119,6 +119,9 @@ body {
     ._ccrd {
         width: 50%;
     }
+    .cntr {
+        text-align: center;
+    }
 }
 body::-webkit-scrollbar {
     width: 5px;

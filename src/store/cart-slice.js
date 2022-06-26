@@ -4,6 +4,11 @@ const cart_slice = createSlice({
     name: "cart",
     initialState: { cartItems: 0, cartItemsList: [], totalPrice: 0 },
     reducers: {
+        resetCart(state) {
+            state.cartItemsList = [];
+            state.totalPrice = 0;
+            state.cartItems = 0;
+        },
         addToCart(state, action) {
             const newItem = action.payload;
             const existing = state.cartItemsList.find(
