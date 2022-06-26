@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -38,19 +38,34 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
+    const [emailErr, setEmailErr] = useState(false);
+    const [pswdErr, setpswdErr] = useState(false);
+    const [email, setEmail] = useState("");
+    const [pswd, setpswd] = useState("");
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const loading = useSelector((state) => state.auth.loading);
     const error = useSelector((state) => state.auth.isError);
     const loggedIn = useSelector((state) => state.auth.isLoggedIn);
+    const validate = (em) => {
+        if (em === "") return false;
+        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(em)) {
+            return true;
+        }
+        return false;
+    };
     const handleSubmit = (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        const cred = {
-            email: data.get("email"),
-            password: data.get("password"),
-        };
-        dispatch(loginUser(cred));
+        if (email === "" || pswd === "") {
+            setEmailErr(true);
+            setpswdErr(true);
+        } else {
+            const cred = {
+                email: email,
+                password: pswd,
+            };
+            dispatch(loginUser(cred));
+        }
     };
 
     useEffect(() => {
@@ -83,20 +98,30 @@ export default function SignIn() {
                     <Box
                         component="form"
                         onSubmit={handleSubmit}
-                        noValidate
                         sx={{ mt: 1 }}
                     >
                         <TextField
+                            value={email}
                             margin="normal"
                             required
                             fullWidth
                             id="email"
+                            type="email"
                             label="Email Address"
                             name="email"
                             autoComplete="email"
                             autoFocus
+                            error={emailErr}
+                            helperText={emailErr ? "Invalid email adsress" : ""}
+                            onChange={(e) => {
+                                if (validate(e.target.value)) {
+                                    setEmailErr(false);
+                                } else setEmailErr(true);
+                                setEmail(e.target.value);
+                            }}
                         />
                         <TextField
+                            value={pswd}
                             margin="normal"
                             required
                             fullWidth
@@ -105,6 +130,18 @@ export default function SignIn() {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            error={pswdErr}
+                            helperText={
+                                pswdErr ? "Must be at least 8 digits" : ""
+                            }
+                            onChange={(e) => {
+                                if (e.target.value.length < 8) {
+                                    setpswdErr(true);
+                                } else {
+                                    setpswdErr(false);
+                                }
+                                setpswd(e.target.value);
+                            }}
                         />
                         <FormControlLabel
                             control={
@@ -121,11 +158,6 @@ export default function SignIn() {
                             Sign In
                         </Button>
                         <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
-                            </Grid>
                             <Grid item>
                                 <Lik to="signUp" style={{ fontSize: "14px" }}>
                                     {"Don't have an account? Sign Up"}

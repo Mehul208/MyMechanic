@@ -9,6 +9,6 @@ export const data = [
     },
     {
         title: "Register Your Business",
-        link: "#",
+        link: "business/register",
     },
 ];

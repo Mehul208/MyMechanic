@@ -21,7 +21,9 @@ const ServiceDetail = () => {
     return (
         <div>
             {!loading && options.length ? (
-                options.map((item, i) => <ServiceCard {...item} key={i} />)
+                options.map((item, i) => (
+                    <ServiceCard {...item} key={i} id={id} />
+                ))
             ) : (
                 <Stack spacing={1}>
                     <Skeleton variant="text" width={210} />

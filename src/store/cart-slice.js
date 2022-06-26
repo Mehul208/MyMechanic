@@ -4,6 +4,11 @@ const cart_slice = createSlice({
     name: "cart",
     initialState: { cartItems: 0, cartItemsList: [], totalPrice: 0 },
     reducers: {
+        resetCart(state) {
+            state.cartItemsList = [];
+            state.totalPrice = 0;
+            state.cartItems = 0;
+        },
         addToCart(state, action) {
             const newItem = action.payload;
             const existing = state.cartItemsList.find(
@@ -18,12 +23,9 @@ const cart_slice = createSlice({
             }
             state.cartItemsList.push({
                 id: newItem.id,
-                // workshopId: newItem.wid,
+                workshopId: newItem.wid,
                 workshop_name: newItem.name,
-                title: newItem.title,
                 price: newItem.price,
-                slot_time: newItem.time,
-                slot_date: newItem.date,
             });
             state.totalPrice += newItem.price;
             state.cartItems++;
