@@ -7,20 +7,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../store/service-actions";
 const ListServices = () => {
     const dispatch = useDispatch();
-    const data = useSelector((state)=>state.services.servicesList);
-    const loading = useSelector((state)=>state.services.loading);
+    const data = useSelector((state) => state.services.servicesList);
+    const loading = useSelector((state) => state.services.loading);
     useEffect(() => {
         dispatch(fetchData());
-    },[dispatch]);
+    }, [dispatch]);
 
     return (
         <div>
             <h1>All Services</h1>
-            <ul>
+            <ul style={{ listStyle: "none", margin: "20px auto" }}>
                 {!loading && data ? (
-                    data.map((item,i) => (
-                        <li key={i}>
-                            <Link to={`${item._id}`}>{item.title}</Link>
+                    data.map((item, i) => (
+                        <li
+                            key={i}
+                            style={{
+                                padding: " 10px 0",
+                                textAlign: " center",
+                                fontSize: "20px",
+                                textTransform: "capitalize",
+                            }}
+                        >
+                            <Link
+                                to={`${item._id}`}
+                                style={{
+                                    textDecoration: "none",
+                                    fontWeight: 500,
+                                }}
+                            >
+                                {item.title}
+                            </Link>
                         </li>
                     ))
                 ) : (
