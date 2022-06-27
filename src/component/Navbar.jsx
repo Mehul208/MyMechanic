@@ -7,7 +7,6 @@ import IconButton from "@mui/material/IconButton";
 import Badge from "@mui/material/Badge";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Logo from "./Logo";
-import { authActions } from "../store/auth-slice";
 import UserAvatar from "./UserAvatar";
 
 const Navbar = () => {
@@ -16,6 +15,7 @@ const Navbar = () => {
     const cartCount = useSelector((state) => state.cart.cartItems);
     const naviagte = useNavigate();
     const dispatch = useDispatch();
+    const screen = window.innerWidth;
     return (
         <nav className="main-nav">
             <Logo />
@@ -25,7 +25,14 @@ const Navbar = () => {
             >
                 <ul>
                     {data.map((item, i) => (
-                        <li key={i}>
+                        <li
+                            key={i}
+                            onClick={() => {
+                                if (screen <= 720) {
+                                    setToggle(false);
+                                }
+                            }}
+                        >
                             <Link to={item.link}>{item.title}</Link>
                         </li>
                     ))}
