@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import CartCard from "./CartCard";
 import Button from "@mui/material/Button";
 import DonePage from "./donePage";
+import Checkout from "../CheckoutPage/Checkout";
 
 const CartList = () => {
     const cartList = useSelector((state) => state.cart.cartItemsList);
@@ -11,7 +12,7 @@ const CartList = () => {
     return (
         <div>
             {checkout ? (
-                <DonePage />
+                <Checkout />
             ) : (
                 <>
                     {cartList.length > 0 ? (
