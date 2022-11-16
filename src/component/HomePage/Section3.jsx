@@ -20,8 +20,7 @@ const Section3 = () => {
             <div className="sect3Text">
                 <h1>Services Near You</h1>
                 <p>
-                    A Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's{" "}
+                    Select service and compare from wide variety of workshops near you{" "}
                 </p>
             </div>
             {!loading && data ? (

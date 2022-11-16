@@ -13,10 +13,10 @@ const DonePage = () => {
         }, 2500);
     }, [dispatch, navigate]);
     return (
-        <div>
-            Your Order is confirmed and your appointment will be scheduled and
+        <h1 classname="text-center">
+            Your booking is done and your appointment will be scheduled and
             confirmed by the workshop.
-        </div>
+        </h1>
     );
 };
 
